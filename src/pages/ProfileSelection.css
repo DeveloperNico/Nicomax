@@ -33,37 +33,7 @@ h1 {
   flex-wrap: wrap;
 }
 
-.profile {
-  cursor: pointer;
-  text-align: center;
-  transition: 0.2s ease-in-out;
-}
-
-.profile:hover {
-  transform: scale(1.2);
-}
-
-.profile img {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  border: 3px solid transparent;
-  transition: 0.2s ease-in-out;
-}
-
-.profile img:hover {
-  border: 3px solid #fff;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
-}
-
-.profile span {
-  display: block;
-  margin-top: 0.8rem;
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.add-profile.new {
+.addProfile.new {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -76,7 +46,7 @@ h1 {
   font-size: 5rem;
 }
 
-.add-profile.new:hover {
+.addProfile.new:hover {
   background: #fff;
   color: #000;
   cursor: pointer;

@@ -1,26 +1,12 @@
 import { useNavigate } from "react-router-dom";
+import ProfileCard from "../components/ProfileCard";
 import "./ProfileSelection.css";
 
 const profiles = [
-    {
-        name: "Nico",
-        img: "/assets/nico.png",
-    },
-
-    {
-        name: "Ariane",
-        img: "/assets/ariane.png",
-    },
-
-    {
-        name: "João",
-        img: "/assets/joao.png",
-    },
-
-    {
-        name: "Gabi",
-        img: "/assets/gabi.png",
-    }
+    { name: "Nico", img: "/assets/nico.png" },
+    { name: "Ariane", img: "/assets/ariane.png" },
+    { name: "João", img: "/assets/joao.png" },
+    { name: "Gabi", img: "/assets/gabi.png" }
 ];
 
 export default function ProfileSelection() {
@@ -36,12 +22,14 @@ export default function ProfileSelection() {
             <h1>Quem está assistindo?</h1>
             <div className="profile-list">
                 {profiles.map((profile) => (
-                    <div key={profile.name} className="profile" onClick={() => handleSelect(profile)}>
-                        <img src={profile.img} alt={profile.name} />
-                        <span>{profile.name}</span>
-                    </div>
+                    <ProfileCard
+                        key={profile.name}
+                        name={profile.name}
+                        img={profile.img}
+                        onSelect={() => handleSelect(profile)}
+                    />
                 ))}
-                <div className="add-profile new">
+                <div className="addProfile new">
                     <span>+</span>
                 </div>
             </div>
