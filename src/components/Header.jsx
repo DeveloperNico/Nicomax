@@ -18,7 +18,7 @@ export default function Header() {
             <nav className={styles.nav}>
                 <NavLink to="/home" className={({ isActive }) => isActive ? `${styles.active}` : undefined}>Início</NavLink>
                 <NavLink to="/series" className={({ isActive }) => isActive ? "active" : ""}>Séries</NavLink>
-                <NavLink to="/filmes" className={({ isActive }) => isActive ? "active" : ""}>Filmes</NavLink>
+                <NavLink to="/movies" className={({ isActive }) => isActive ? "active" : ""}>Filmes</NavLink>
             </nav>
 
             <div className={styles.profile}>
