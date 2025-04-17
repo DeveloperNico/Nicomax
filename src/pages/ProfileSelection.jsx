@@ -6,7 +6,8 @@ const profiles = [
     { name: "Nico", img: "/assets/nico.png" },
     { name: "Ariane", img: "/assets/ariane.png" },
     { name: "João", img: "/assets/joao.png" },
-    { name: "Gabi", img: "/assets/gabi.png" }
+    { name: "Gabi", img: "/assets/gabi.png" },
+    { name: "Agátha", img: "/assets/agatha.png" }
 ];
 
 export default function ProfileSelection() {
