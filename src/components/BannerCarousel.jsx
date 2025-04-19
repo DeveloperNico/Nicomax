@@ -25,7 +25,7 @@ export default function BannerCarousel() {
     <div className={styles.banner} style={{ backgroundImage: `url(${backdropUrl})` }}>
         <div className={styles.overlay}>
             <h1>{movie.title}</h1>
-            <p>{movie.overview}</p>
+            <p>{`${movie.overview ? movie.overview : 'Sinópse indisponível.'}`}</p>
         </div>
 
         <button className={styles.leftArrow} onClick={() => setCurrentIndex((prev) => (prev - 1 + movies.length) % movies.length)}>

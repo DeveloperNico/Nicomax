@@ -1,0 +1,72 @@
+
+.containerFundo{
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: #080808;
+    width: 100%;
+}
+
+h2 {
+    color: #fff;
+    font-size: 2rem;
+    margin: 1rem 0;
+    padding: 60px 40px 0 40px;
+    cursor: default;
+}
+
+:global(.slick-list) {
+    padding: 0 10px !important;
+}
+
+/* Remover conteúdo padrão */
+:global(.slick-prev::before),
+:global(.slick-next::before) {
+    content: '' !important;
+    display: none !important;
+}
+
+/* Estilos personalizados para as setas */
+:global(.slick-prev),
+:global(.slick-next) {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 40px !important;
+    height: 350px !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+    border-radius: 0 !important;
+    z-index: 10 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+/* Posicionamento individual */
+:global(.slick-prev) {
+    left: 0 !important;
+}
+
+:global(.slick-next) {
+    right: 0 !important;
+}
+
+:global(.slick-prev)::after {
+    content: '‹';
+    font-size: 3rem;
+    color: rgb(100, 100, 100);
+}
+  
+:global(.slick-next)::after {
+    content: '›';
+    font-size: 3rem;
+    color: rgb(100, 100, 100);
+}
+
+:global(.slick-prev:hover)::after,
+:global(.slick-next:hover)::after {
+  color: #ffffff; /* muda a cor do símbolo na seta */
+}
