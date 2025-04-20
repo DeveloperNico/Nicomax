@@ -2,10 +2,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProfileSelection from "./pages/ProfileSelection";
 import Home from "./pages/Home";
 import Movies from "./pages/Movies";
+import PageTitle from "./components/PageTitle";
 
 function App() {
     return (
         <Router>
+            <PageTitle />
             <Routes>
                 <Route path="/" element={<ProfileSelection />} />
                 <Route path="/home" element={<Home />} />

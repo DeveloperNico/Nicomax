@@ -20,7 +20,7 @@ export default function Modal({movie, onClose}) {
                     <img className={estilos.imgModal} src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
                     <ul className={estilos.movieDetails}>
                         <li>{`Popularidade: ${movie.popularity}`}</li>
-                        <li>{`Data de lançamento: ${movie.release_date}`}</li>
+                        <li>{`Data de lançamento: ${movie.release_date ? movie.release_date : 'Data indisponível.'}`}</li>
                         <li>{`Quantidade de votos: ${movie.vote_average}`}</li>
                         <li>{`Sinópse: ${movie.overview ? movie.overview : 'Sinópse indisponível.'}`}</li>
                     </ul>
