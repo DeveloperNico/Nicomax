@@ -11,9 +11,12 @@ import Slider from "react-slick";
 export default function ListMovies(){
 
     // mostra se foi selecionado um filme para a visualização
-    const [selectdMovie, setselectdMovie] = useState(null); // variável
+    const [selectdMovie, setSelectdMovie] = useState(null); // variável
     // crio uma variavel chamada movie, e "seto" o estado dela como vazio
     const [movies, setMovie] = useState([]); // lista
+
+    const [selectdSerie, setSelectdSerie] = useState(null); // variável
+    const [series, setSeries] = useState([]); // lista
 
     const API_key = '499c2201cdc0d58443f51cc7ae480209';
     const API_url = 'https://api.themoviedb.org/3';
@@ -29,6 +32,17 @@ export default function ListMovies(){
                 console.log('Error', error);
             })
     }, []);
+
+    useEffect(() => {
+      axios.get(`${API_url}/tv/popular?api_key=${API_key}&language=pt-BR`)
+          .then(response =>{
+              console.log(response.data.results);
+              setSeries(response.data.results)
+          })
+          .catch(error => {
+              console.log('Error', error);
+          })
+  }, []);
 
     let settings = {
         dots: true,
@@ -66,16 +80,16 @@ export default function ListMovies(){
       };
 
     const handleOpenModal = (movie) => {
-        setselectdMovie(movie);
+        setSelectdMovie(movie);
     };
 
     const handleCloseModal = () => {
-        setselectdMovie(null);
+        setSelectdMovie(null);
     };
 
     return(
       <div className={styles.containerFundo}>
-        <h2>Recomendados para você</h2>
+        <h2>Filmes recomendados para você</h2>
         <Slider {...settings}>
           {movies.map(movie => (
             <Card key={movie.id} 
@@ -85,6 +99,17 @@ export default function ListMovies(){
             ))}
         </Slider>
         {selectdMovie && (<Modal movie={selectdMovie} onClose={handleCloseModal} />)}
+
+        <h2>Séries recomendados para você</h2>
+        <Slider {...settings}>
+          {series.map(serie => (
+            <Card key={serie.id} 
+                movie={serie} 
+                onOpenModal={handleOpenModal} 
+                link={`https://image.tmdb.org/t/p/w500/${serie.poster_path}`}/>
+            ))}
+        </Slider>
+        {selectdSerie && (<Modal serie={selectdSerie} onClose={handleCloseModal} />)}
       </div>
     )
 }
