@@ -70,5 +70,4 @@ button {
     border: none;
     cursor: pointer;
     align-self: flex-start;
-    transition: 0.2s ease-in-out;
 }

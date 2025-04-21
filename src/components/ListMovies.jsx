@@ -11,19 +11,19 @@ import Slider from "react-slick";
 export default function ListMovies(){
 
     // mostra se foi selecionado um filme para a visualização
-    const [selectdMovie, setSelectdMovie] = useState(null); // variável
+    const [selectedMovie, setSelectedMovie] = useState(null); // variável
     // crio uma variavel chamada movie, e "seto" o estado dela como vazio
     const [movies, setMovie] = useState([]); // lista
 
-    const [selectdSerie, setSelectdSerie] = useState(null); // variável
+    const [selectedSerie, setSelectedSerie] = useState(null); // variável
     const [series, setSeries] = useState([]); // lista
 
-    const API_key = '499c2201cdc0d58443f51cc7ae480209';
-    const API_url = 'https://api.themoviedb.org/3';
+    const api_key = '499c2201cdc0d58443f51cc7ae480209';
+    const api_url = 'https://api.themoviedb.org/3';
 
     // Efect trabalha com uma estrutura especifica parametros(), script{} e dependencias[]
     useEffect(() => {
-        axios.get(`${API_url}/movie/popular?api_key=${API_key}&language=pt-BR`)
+        axios.get(`${api_url}/movie/popular?api_key=${api_key}&language=pt-BR`)
             .then(response =>{
                 console.log(response.data.results);
                 setMovie(response.data.results)
@@ -34,7 +34,7 @@ export default function ListMovies(){
     }, []);
 
     useEffect(() => {
-      axios.get(`${API_url}/tv/popular?api_key=${API_key}&language=pt-BR`)
+      axios.get(`${api_url}/tv/popular?api_key=${api_key}&language=pt-BR`)
           .then(response =>{
               console.log(response.data.results);
               setSeries(response.data.results)
@@ -80,11 +80,11 @@ export default function ListMovies(){
       };
 
     const handleOpenModal = (movie) => {
-        setSelectdMovie(movie);
+        setSelectedMovie(movie);
     };
 
     const handleCloseModal = () => {
-        setSelectdMovie(null);
+        setSelectedMovie(null);
     };
 
     return(
@@ -98,18 +98,18 @@ export default function ListMovies(){
                 link={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}/>
             ))}
         </Slider>
-        {selectdMovie && (<Modal movie={selectdMovie} onClose={handleCloseModal} />)}
+        {selectedMovie && (<Modal movie={selectedMovie} onClose={handleCloseModal} />)}
 
         <h2>Séries recomendadas para você</h2>
         <Slider {...settings}>
           {series.map(serie => (
             <Card key={serie.id} 
                 movie={serie} 
-                onOpenModal={handleOpenModal} 
+                onOpenModal={handleOpenModal}
                 link={`https://image.tmdb.org/t/p/w500/${serie.poster_path}`}/>
             ))}
         </Slider>
-        {selectdSerie && (<Modal serie={selectdSerie} onClose={handleCloseModal} />)}
+        {selectedSerie && (<Modal serie={selectedSerie} onClose={handleCloseModal} />)}
       </div>
     )
 }
