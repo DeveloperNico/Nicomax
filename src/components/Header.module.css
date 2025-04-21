@@ -49,3 +49,11 @@
     height: 40px;
     border-radius: 50%;
 }
+
+.active {
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    color: white;
+  }
+  

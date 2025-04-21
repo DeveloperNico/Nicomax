@@ -16,9 +16,9 @@ export default function Header() {
             <h1 className={styles.logo}>Nicomax</h1>
 
             <nav className={styles.nav}>
-                <NavLink to="/home" className={({ isActive }) => isActive ? `${styles.active}` : undefined}>Início</NavLink>
-                <NavLink to="/series" className={({ isActive }) => isActive ? "active" : ""}>Séries</NavLink>
-                <NavLink to="/movies" className={({ isActive }) => isActive ? "active" : ""}>Filmes</NavLink>
+                <NavLink to="/home" className={({ isActive }) => isActive ? styles.active : undefined}>Início</NavLink>
+                <NavLink to="/series" className={({ isActive }) => isActive ? styles.active : undefined}>Séries</NavLink>
+                <NavLink to="/movies" className={({ isActive }) => isActive ? styles.active : undefined}>Filmes</NavLink>
             </nav>
 
             <div className={styles.profile}>
