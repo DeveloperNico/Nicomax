@@ -100,7 +100,7 @@ export default function ListMovies(){
         </Slider>
         {selectdMovie && (<Modal movie={selectdMovie} onClose={handleCloseModal} />)}
 
-        <h2>Séries recomendados para você</h2>
+        <h2>Séries recomendadas para você</h2>
         <Slider {...settings}>
           {series.map(serie => (
             <Card key={serie.id} 
