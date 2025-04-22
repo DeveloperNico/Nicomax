@@ -15,7 +15,7 @@ h1 {
   cursor: default;
 }
 
-.profile-page {
+.profile_page {
   text-align: center;
   color: white;
   background: radial-gradient(circle at center, #2a2a2a 0%, #111 60%, #000 100%);
@@ -25,7 +25,7 @@ h1 {
   min-height: 100vh;
 }
 
-.profile-list {
+.profile_list {
   display: flex;
   justify-content: center;
   gap: 2rem;

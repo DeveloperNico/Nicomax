@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ProfileCard from "../components/ProfileCard";
-import "./ProfileSelection.css";
+import styles from "./ProfileSelection.module.css";
 
 // Perfis padrão
 const defaultProfiles = [
@@ -69,9 +69,9 @@ export default function ProfileSelection() {
     const allProfiles = [...visibleDefaultProfiles, ...customProfiles];
 
     return (
-        <div className="profile-page">
+        <div className={styles.profile_page}>
             <h1>Quem está assistindo?</h1>
-            <div className="profile-list">
+            <div className={styles.profile_list}>
                 {allProfiles.map((profile) => (
                     <ProfileCard
                         key={profile.name}
@@ -81,7 +81,7 @@ export default function ProfileSelection() {
                         onDelete={() => handleDelete(profile.name)}
                     />
                 ))}
-                <div className="addProfile new" onClick={handleAddProfile}>
+                <div className={`${styles.addProfile} ${styles.new}`} onClick={handleAddProfile}>
                     <span>+</span>
                 </div>
             </div>
