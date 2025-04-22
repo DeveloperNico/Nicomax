@@ -17,6 +17,7 @@ export default function SeriesList() {
         const newSeries = response.data.results;
         const combined = [...series, ...newSeries];
 
+        // Remove duplicatas com base no ID, usando Map para garantir a que não apareçam IDs repetidos
         const uniqueSeries = Array.from(new Map(combined.map(serie => [serie.id, serie])).values());
         setSeries(uniqueSeries);
     };
