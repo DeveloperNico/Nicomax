@@ -24,7 +24,6 @@ export default function SeriesList() {
 
     useEffect(() => {
         loadSeries();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page]);
 
     const handleOpenModal = (serie) => {
